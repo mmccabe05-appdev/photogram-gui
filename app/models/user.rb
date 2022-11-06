@@ -143,7 +143,7 @@ class User < ApplicationRecord
         array_of_photo_ids.push(a_photo.id)
       end
     end
-
+ 
     matching_photos = Photo.where({ :id => array_of_photo_ids })
 
     return matching_photos

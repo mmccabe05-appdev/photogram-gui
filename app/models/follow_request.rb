@@ -26,7 +26,7 @@ class FollowRequest < ApplicationRecord
 
     return the_user
   end
-
+ 
   def recipient
     my_recipient_id = self.recipient_id
 
