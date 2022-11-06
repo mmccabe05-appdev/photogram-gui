@@ -1,3 +1,5 @@
+
+
 <h1><%= @the_user.username %></h1>
 <dl>
 <dt>ID</dt>
@@ -8,7 +10,7 @@
 
 </dl>
 
-<h2>Own photos {photo count}</h2>
+<h2>Own photos (<%= @the_user.own_photos.count %>)</h2>
 <table border="1">
 <tr>
   <td>Image</td>
