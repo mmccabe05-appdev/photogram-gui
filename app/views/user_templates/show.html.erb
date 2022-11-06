@@ -1,0 +1,31 @@
+<h1><%= @the_user.username %></h1>
+<dl>
+<dt>ID</dt>
+<DD><%= @the_user.id %></dd>
+<dt>Edit user</dt>
+<DD>Username <form><input default="<%= @the_user.username %>">
+<button>submit</button></form></dd>
+
+</dl>
+
+<h2>Own photos {photo count}</h2>
+<table border="1">
+<tr>
+  <td>Image</td>
+  <td>Owner</td>
+  <td>Caption</td>
+  <td>Posted</td>
+  <td></td>
+  </tr>
+
+  <!-- DO Loop here -->
+  <% @the_user.own_photos.each do |each_photo| %>
+  <tr>
+    <td><img src="<%= each_photo.image %>"></td>
+    <td><%= each_photo.poster.username %></td>
+    <td><%= each_photo.caption %></td>
+    <td><%= each_photo.created_at %></td>
+        <td><a href="/photos/<%= each_photo.id %>">Show details</a></td>
+  </tr>
+  <% end %>
+</table>
