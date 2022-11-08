@@ -25,4 +25,19 @@ class PhotosController < ApplicationController
     # render({ :template => "photo_templates/deleted.html.erb" })
     redirect_to("/photos")
   end
+  def add
+    url_photo = params.fetch("input_image")
+    n = Photo.new
+    n.image = url_photo
+    n.caption = params.fetch("input_caption")
+    n.owner_id = params.fetch("input_owner_id")
+    n.save
+    new_photo_id = n.id
+
+    matching_photo = Photo.where({:id=>new_photo_id})
+    @the_photo = matching_photo.first
+
+    # render({ :template => "photo_templates/show.html.erb" })
+    redirect_to("/photos/" + new_photo_id.to_s)
+  end 
 end
